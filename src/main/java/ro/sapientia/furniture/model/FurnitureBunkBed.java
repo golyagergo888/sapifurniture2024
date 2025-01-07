@@ -8,8 +8,12 @@ public class FurnitureBunkBed implements Serializable{
     private static final long serialVersionUID = 1L;
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "pk_furniture_bunk_bed")
-    @SequenceGenerator(name = "pk_furniture_bunk_bed", sequenceName = "pk_furniture_bunk_bed")
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "furniture_bunk_bed_seq")
+    @SequenceGenerator(
+            name = "furniture_bunk_bed_seq",
+            sequenceName = "furniture_bunk_bed_seq",
+            allocationSize = 1 // Adatbázis szintű inkrementáció
+    )
     @Column(name = "id", nullable = false, updatable = false)
     private Long id;
 
@@ -22,15 +26,23 @@ public class FurnitureBunkBed implements Serializable{
     @Column(name = "depth")
     private int depth;
 
-    @Column(name = "material")
+    @Column(name = "material", nullable = false)
     @Enumerated(EnumType.STRING)
     private FurnitureMaterial material;
 
-    @Column(name = "type")
+    @Column(name = "type", nullable = false)
     @Enumerated(EnumType.STRING)
     private FurnitureBunkBedType type;
 
     public FurnitureBunkBed() {
+    }
+
+    public FurnitureBunkBed(int width, int height, int depth, FurnitureMaterial material, FurnitureBunkBedType type) {
+        this.width = width;
+        this.height = height;
+        this.depth = depth;
+        this.material = material;
+        this.type = type;
     }
 
     public Long getId() {
@@ -83,7 +95,13 @@ public class FurnitureBunkBed implements Serializable{
 
     @Override
     public String toString() {
-        return "FurnitureBunkBed(id=" + this.getId() + ", width=" + this.getWidth() + ", height=" + this.getHeight() +
-                ", depth=" + this.getDepth() + ", material=" + this.getMaterial() + ", type=" + this.getType() + ")";
+        return "FurnitureBunkBed{" +
+                "id=" + id +
+                ", width=" + width +
+                ", height=" + height +
+                ", depth=" + depth +
+                ", material=" + material +
+                ", type=" + type +
+                '}';
     }
 }
