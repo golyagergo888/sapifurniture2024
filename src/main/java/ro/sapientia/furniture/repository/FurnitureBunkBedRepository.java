@@ -8,8 +8,6 @@ import ro.sapientia.furniture.model.FurnitureMaterial;
 import java.util.List;
 
 public interface FurnitureBunkBedRepository  extends JpaRepository<FurnitureBunkBed, Long> {
-    FurnitureBunkBed findFurnitureBunkBedById(Long id);
-
     List<FurnitureBunkBed> findFurnitureBunkBedByMaterial(FurnitureMaterial material);
 
     List<FurnitureBunkBed> findFurnitureBunkBedByType(FurnitureBunkBedType type);

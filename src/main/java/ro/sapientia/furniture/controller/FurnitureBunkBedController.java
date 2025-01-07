@@ -15,7 +15,7 @@ import javax.validation.Valid;
 import java.util.List;
 
 @RestController
-@RequestMapping("/furnitures/bunk-beds")
+@RequestMapping("/furniture/bunk-bed")
 public class FurnitureBunkBedController {
 
     private final FurnitureBunkBedService bunkBedService;

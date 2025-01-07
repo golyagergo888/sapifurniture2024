@@ -6,13 +6,14 @@ import java.io.Serializable;
 @Entity(name = "furniture_bunk_bed")
 public class FurnitureBunkBed implements Serializable{
     private static final long serialVersionUID = 1L;
+    public static Object FurnitureMaterial;
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "furniture_bunk_bed_seq")
     @SequenceGenerator(
             name = "furniture_bunk_bed_seq",
             sequenceName = "furniture_bunk_bed_seq",
-            allocationSize = 1 // Adatbázis szintű inkrementáció
+            allocationSize = 1
     )
     @Column(name = "id", nullable = false, updatable = false)
     private Long id;
