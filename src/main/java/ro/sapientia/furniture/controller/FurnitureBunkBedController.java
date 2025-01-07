@@ -27,9 +27,9 @@ public class FurnitureBunkBedController {
 
     // Create a new bunk bed
     @PostMapping
-    public ResponseEntity<FurnitureBunkBed> createBunkBed(@Valid @RequestBody FurnitureBunkBedDTO dto) {
-        FurnitureBunkBed bunkBed = bunkBedService.createBunkBed(dto);
-        return ResponseEntity.ok(bunkBed);
+    public ResponseEntity<FurnitureBunkBed> createBunkBed(@RequestBody FurnitureBunkBedDTO bunkBedDTO) {
+        FurnitureBunkBed bunkBed = bunkBedService.createBunkBed(bunkBedDTO);
+        return new ResponseEntity<>(bunkBed, HttpStatus.CREATED);
     }
 
     // Get all bunk beds
